@@ -1,0 +1,248 @@
+/* =========================================================
+   LENSA UYUB Studio - gaya untuk fitur interaktif
+   Simpan sebagai assets/css/interactive.css
+   ========================================================= */
+
+/* Dasar katalog (aman menimpa/melengkapi style.css lama) */
+.filter-btn {
+  border: 1px solid #cfd8d3;
+  background: #fff;
+  color: #2b3a33;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+.filter-btn:hover {
+  border-color: #198754;
+  color: #198754;
+}
+.filter-btn.active {
+  background: #198754;
+  border-color: #198754;
+  color: #fff;
+}
+.filter-btn:focus-visible,
+.btn:focus-visible,
+#back-to-top:focus-visible {
+  outline: 3px solid #9fd8b7;
+  outline-offset: 2px;
+}
+
+.badge-jasa {
+  background: #e3f4ea;
+  color: #146c43;
+}
+.badge-barang {
+  background: #fff1db;
+  color: #8a5300;
+}
+
+/* Kartu produk */
+.product-card {
+  background: #fff;
+  border: 1px solid #e6ebe8;
+  border-radius: 0.75rem;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+.product-card:hover {
+  border-color: #b9d9c6;
+  box-shadow: 0 6px 18px rgba(20, 60, 40, 0.08);
+}
+
+.product-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  display: block;
+}
+.product-img-placeholder {
+  height: 180px;
+  border-radius: 0.5rem;
+  background: #eef3f0;
+  color: #5c6b64;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+.js-detail {
+  cursor: zoom-in;
+}
+
+/* Hasil filter muncul dengan transisi singkat */
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.pop-in {
+  animation: pop-in 0.28s ease-out both;
+}
+
+/* Info jumlah hasil + urutkan */
+#result-count {
+  color: #6b7a73;
+  font-size: 0.85rem;
+}
+#sort-select {
+  max-width: 190px;
+}
+
+/* Tombol tambah */
+.js-add-cart {
+  transition:
+    background-color 0.15s,
+    transform 0.1s;
+}
+.js-add-cart:active {
+  transform: scale(0.97);
+}
+.js-add-cart.btn-added {
+  background-color: #146c43;
+  border-color: #146c43;
+}
+.js-add-cart.is-loading {
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Badge keranjang bergetar saat item masuk */
+@keyframes cart-bump {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.12);
+  }
+  70% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.cart-bump {
+  animation: cart-bump 0.45s ease-out;
+}
+
+/* Toast */
+#toast-host {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: calc(100vw - 2rem);
+}
+.app-toast {
+  background: #1d2b24;
+  color: #fff;
+  padding: 0.7rem 1rem;
+  border-radius: 0.6rem;
+  font-size: 0.88rem;
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.22s,
+    transform 0.22s;
+}
+.app-toast.show {
+  opacity: 1;
+  transform: none;
+}
+.app-toast a {
+  color: #8fe0b2;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.app-toast a:hover {
+  text-decoration: underline;
+}
+.app-toast-error {
+  background: #7a1f1f;
+}
+
+/* Halaman daftar pesanan: pengatur jumlah */
+.qty-control {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #d6ddd9;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.qty-control a,
+.qty-control span {
+  min-width: 2.1rem;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #1d2b24;
+}
+.qty-control a:hover {
+  background: #e3f4ea;
+  color: #146c43;
+}
+
+/* Checkout: opsi pengiriman terpilih */
+.option-selected {
+  border-color: #198754 !important;
+  background: #f1faf5 !important;
+}
+
+/* Tombol kembali ke atas */
+#back-to-top {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 0;
+  border-radius: 50%;
+  background: #198754;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 1500;
+}
+#back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hormati pengguna yang mematikan animasi */
+@media (prefers-reduced-motion: reduce) {
+  .pop-in,
+  .cart-bump {
+    animation: none;
+  }
+  .app-toast,
+  .js-add-cart,
+  .product-card {
+    transition: none;
+  }
+}
